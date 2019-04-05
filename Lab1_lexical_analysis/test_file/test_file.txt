@@ -1,0 +1,21 @@
+while(num != 100)
+{
+    num++;
+}
+int test_1, _test;
+if(s) return 1;
+else return 0;
+char s[10];
+s[1] = 'a';
+String t = "niechenxi";
+float s = 1.563;
+float t = 10.23e-10;
+/*单行的跨行注释*/
+/*跨行的
+  跨行注释*/
+//球球你过了⑧
+//ncx最帅!
+float t = 1.1.1;
+char s = '\t;
+String ff = "asdfg;
+/*aaf
