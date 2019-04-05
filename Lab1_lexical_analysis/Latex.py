@@ -142,20 +142,3 @@ if __name__ == "__main__":
                         else:
                             token_recognition(line[i], digitDFA, charDFA, stringDFA, commentDFA, o_H_DFA, line_number)
                 i += 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
