@@ -4,78 +4,84 @@
 # @FileName: Latex.py
 # @E-mail    ：niechenxiHIT@126.com
 
-from utils import DigitDFA, CharDFA, StringDFA, CommentDFA, O_H_DFA
-from utils import digitDFA_path, charDFA_path, stringDFA_path, commentDFA_path, O_H_DFA_path
+from utils import digitDFA, charDFA, stringDFA, commentDFA, o_H_DFA
 from utils import isAlpha, isOp, isDigit, isChar, isString
 from utils import isPlusSame, isPlusEqu, isPlusOp
 from utils import boundary, operator, keywords
 
 character_table = [] # 符号表
+token_l = []
+error_l = []
 
 def token_recognition(token, digitDFA, charDFA, stringDFA, commentDFA, o_H_DFA, line_number):
     #关键字和标识符
     if isAlpha(token[0]):
         if token in keywords:
-            print(token + "\t<关键字\t" + token + ">\t" + str(line_number))
+            # print(token + "\t<关键字\t" + token + ">\t" + str(line_number))
+            token_l.append(token + "\t关键字\t" + token + "\t" + str(line_number))
         else:
             if token not in character_table:
                 character_table.append(token)
-                print(token + "\t<标识符\t" + token + ">\t" + str(line_number))
+                # print(token + "\t<标识符\t" + token + ">\t" + str(line_number))
+                token_l.append(token + "\t标识符\t" + token + "\t" + str(line_number))
 
     if isOp(token[0]):
-        print(token + "\t<运算符\t" + token + ">\t" + str(line_number))
+        # print(token + "\t<运算符\t" + token + ">\t" + str(line_number))
+        token_l.append(token + "\t运算符\t" + token + "\t" + str(line_number))
 
     if isDigit(token[0]):
         digitDFA_result, isfloat = digitDFA.in_digitDFA(token)
         if digitDFA_result:
             if isfloat:
-                print(token + "\t<浮点型常量\t" + token + ">\t" + str(line_number))
+                # print(token + "\t<浮点型常量\t" + token + ">\t" + str(line_number))
+                token_l.append(token + "\t浮点型常量\t" + token + "\t" + str(line_number))
             else:
-                print(token + "\t<整形常量\t" + token + ">\t" + str(line_number))
+                # print(token + "\t整形常量\t" + token + "\t" + str(line_number))
+                token_l.append(token + "\t整形常量\t" + token + "\t" + str(line_number))
 
         o_H_DFA_result, error_message, is_octal = o_H_DFA.in_O_H_DFA(token)
         if o_H_DFA_result:
             if is_octal:
-                print(token + "\t<八进制常量\t" + token+ ">\t" + str(line_number))
+                # print(token + "\t<八进制常量\t" + token+ ">\t" + str(line_number))
+                token_l.append(token + "\t八进制常量\t" + token+ "\t" + str(line_number))
             else:
-                print(token + "\t<十六进制常量\t" + token + ">\t" + str(line_number))
+                # print(token + "\t<十六进制常量\t" + token + ">\t" + str(line_number))
+                token_l.append(token + "\t十六进制常量\t" + token + "\t" + str(line_number))
 
         if not digitDFA_result and not o_H_DFA_result:
-            print("错误:在" + str(line_number) + "行, 试图将" + token + "解析为数字型常量发生错误!")
+            # print("错误:在" + str(line_number) + "行, 试图将" + token + "解析为数字型常量发生错误!")
+            error_l.append("错误:在" + str(line_number) + "行, 试图将" + token + "解析为数字型常量发生错误!")
 
     if isChar(token[0]):
         charDFA_result, error_message = charDFA.in_charDFA(token)
 
         if charDFA_result:
-            print(token + "\t<字符型常量\t" + token + ">\t" + str(line_number))
+            # print(token + "\t<字符型常量\t" + token + ">\t" + str(line_number))
+            token_l.append(token + "\t字符型常量\t" + token + "\t" + str(line_number))
         else:
-            print("错误:在" + str(line_number) + "行, 试图将" + token + "解析为字符型常量发生错误!" )
+            # print("错误:在" + str(line_number) + "行, 试图将" + token + "解析为字符型常量发生错误!" )
+            error_l.append("错误:在" + str(line_number) + "行, 试图将" + token + "解析为字符型常量发生错误!")
 
     if isString(token[0]):
         stringDFA_result, error_message = stringDFA.in_stringDFA(token)
 
         if stringDFA_result:
-            print(token + "\t<字符串常量\t" + token + ">\t" + str(line_number))
+            # print(token + "\t<字符串常量\t" + token + ">\t" + str(line_number))
+            token_l.append(token + "\t字符串常量\t" + token + "\t" + str(line_number))
         else:
-            print("错误:在" + str(line_number) + "行, 试图将" + token + "解析为字符串常量发生错误!")
+            # print("错误:在" + str(line_number) + "行, 试图将" + token + "解析为字符串常量发生错误!")
+            error_l.append("错误:在" + str(line_number) + "行, 试图将" + token + "解析为字符型常量发生错误!")
 
 
 
-if __name__ == "__main__":
-    ######################
-    #       DFA          #
-    ######################
-    digitDFA = DigitDFA(digitDFA_path)
-    charDFA = CharDFA(charDFA_path)
-    stringDFA = StringDFA(stringDFA_path)
-    commentDFA = CommentDFA(commentDFA_path)
-    o_H_DFA = O_H_DFA(O_H_DFA_path)
+def Latex_analyse_main(file_path, digitDFA, charDFA, stringDFA, commentDFA, o_H_DFA):
+
 
     #######################
     #      文件操作        #
     #######################
 
-    file = open("test_file/test_file.txt", "r", encoding="gbk")
+    file = open(file_path, encoding="gbk")
     line_number = 0
     while True:
         line = file.readline()
@@ -105,10 +111,12 @@ if __name__ == "__main__":
             else:
                 comment_true, error_message = commentDFA.in_commentDFA(program_line) #单行注释, 最后的换行符是结束的标志, 不能删除
             if comment_true:
-                print(program_line.replace("\n", "") + "\t<注释\t"+ program_line.replace("\n", "") + ">\t" + str(line_number))
+                #print(program_line.replace("\n", "") + "\t<注释\t"+ program_line.replace("\n", "") + ">\t" + str(line_number))
+                token_l.append(program_line.replace("\n", "") + "\t<注释\t"+ program_line.replace("\n", "") + ">\t" + str(line_number))
 
             if not comment_true:
-                print("错误:在" + str(line_number) + "行, 试图将" + program_line.replace("\n", "") + "解析为注释发生错误!")
+                #print("错误:在" + str(line_number) + "行, 试图将" + program_line.replace("\n", "") + "解析为注释发生错误!")
+                error_l.append("错误:在" + str(line_number) + "行, 试图将" + program_line.replace("\n", "") + "解析为注释发生错误!")
         else:
             token = ""
             i = 0
@@ -142,3 +150,5 @@ if __name__ == "__main__":
                         else:
                             token_recognition(line[i], digitDFA, charDFA, stringDFA, commentDFA, o_H_DFA, line_number)
                 i += 1
+
+    return character_table, error_l, token_l

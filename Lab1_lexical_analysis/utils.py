@@ -82,13 +82,6 @@ stringDFA_path = "DFA/stringDFA"
 commentDFA_path = "DFA/commentDFA"
 O_H_DFA_path = "DFA/O_H_DFA"
 
-__digitDFA = DFA_converter(digitDFA_path).convert()
-charDFA = DFA_converter(charDFA_path).convert()
-stringDFA = DFA_converter(stringDFA_path).convert()
-commentDFA = DFA_converter(commentDFA_path).convert()
-O_H_DFA = DFA_converter(O_H_DFA_path).convert()
-
-
 
 class DigitDFA:
     __digitDFA = None
@@ -271,4 +264,8 @@ class O_H_DFA:
             error_masage = "自动机停止状态不再最终状态"
             return (False, error_masage, is_octal)
 
-
+digitDFA = DigitDFA(digitDFA_path)
+charDFA = CharDFA(charDFA_path)
+stringDFA = StringDFA(stringDFA_path)
+commentDFA = CommentDFA(commentDFA_path)
+o_H_DFA = O_H_DFA(O_H_DFA_path)
