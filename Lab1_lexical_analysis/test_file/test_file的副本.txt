@@ -2,7 +2,7 @@ while(num != 100)
 {
     num++;
 }
-int test_1, _test3;
+int test_1, _test;
 if(s) return 1;
 else return 0;
 char s[10];
@@ -14,7 +14,7 @@ float t = 10.23e-10;
 //wangjianyu
 /*English##
 Comment*/
-float t = 1.1;
+float t = 1.1.1;
 char s = '\t;
 String ff = "asdfg;
-/*aa
+/*aaf

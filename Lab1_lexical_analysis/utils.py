@@ -106,7 +106,7 @@ class DigitDFA:
         for i in range(len(program_fraction)):
             DFA_state = self.__digitDFA[state]
             ch = program_fraction[i]
-            if state == 4:
+            if ch == '.' or ch == 'e':
                 is_float = True
             if isDigit(ch):
                 if "d" in DFA_state:

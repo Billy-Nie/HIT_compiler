@@ -6,6 +6,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Latex.py" beforeDir="false" afterPath="$PROJECT_DIR$/Latex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Latex_UI_launcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/Latex_UI_launcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/Latex_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Latex_UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/Latex_UI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Latex_UI.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_file/test_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_file/test_file.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,15 +22,15 @@
     <SUITE FILE_PATH="coverage/Lab1_lexical_analysis$Latex_UI.coverage" NAME="Latex_UI Coverage Results" MODIFIED="1554510816360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Lab1_lexical_analysis$utils.coverage" NAME="utils Coverage Results" MODIFIED="1554445981382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Lab1_lexical_analysis$Latex.coverage" NAME="Latex Coverage Results" MODIFIED="1554510860355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Lab1_lexical_analysis$Latex_UI_launcher.coverage" NAME="Latex_UI_launcher Coverage Results" MODIFIED="1554556460782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Lab1_lexical_analysis$Latex_UI_launcher.coverage" NAME="Latex_UI_launcher Coverage Results" MODIFIED="1554907448640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Latex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="63" selection-start-line="63" selection-end-line="63" selection-end-column="25" />
+            <state relative-caret-position="262">
+              <caret line="127" column="28" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
               <folding>
                 <element signature="e#135#202#0" expanded="true" />
               </folding>
@@ -34,10 +39,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UI/Latex_UI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Latex_UI_launcher.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1470">
+              <caret line="98" column="28" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
+              <folding>
+                <element signature="e#147#189#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/codecs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4800">
+              <caret line="321" selection-start-line="321" selection-end-line="321" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3177">
-              <caret line="16" column="105" selection-start-line="16" selection-start-column="105" selection-end-line="16" selection-end-column="105" />
+            <state relative-caret-position="1620">
+              <caret line="108" column="36" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -63,6 +98,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>program_fraction</find>
+      <find>input_text</find>
+      <find>token + &quot;\t字符串常量\t&quot; + token + &quot;\t&quot; + str(line_number)</find>
+      <find>确定</find>
+      <find>character_table</find>
+      <find>print(error_l)</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -73,9 +113,11 @@
       <list>
         <option value="$PROJECT_DIR$/DFA_converter.py" />
         <option value="$PROJECT_DIR$/DFA_convert.py" />
+        <option value="$PROJECT_DIR$/Latex_UI.py" />
+        <option value="$PROJECT_DIR$/UI/Latex_UI.py" />
+        <option value="$PROJECT_DIR$/Latex_UI_launcher.py" />
         <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/Latex.py" />
-        <option value="$PROJECT_DIR$/Latex_UI.py" />
       </list>
     </option>
   </component>
@@ -96,6 +138,16 @@
               <item name="Lab1_lexical_analysis" type="b2602c69:ProjectViewProjectNode" />
               <item name="Lab1_lexical_analysis" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Lab1_lexical_analysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Lab1_lexical_analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="test_file" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Lab1_lexical_analysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Lab1_lexical_analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -108,7 +160,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -213,9 +265,9 @@
     </configuration>
     <list>
       <item itemvalue="Python.Latex" />
-      <item itemvalue="Python.utils" />
       <item itemvalue="Python.Latex_UI" />
       <item itemvalue="Python.Latex_UI_launcher" />
+      <item itemvalue="Python.utils" />
     </list>
     <recent_temporary>
       <list>
@@ -241,16 +293,23 @@
       <workItem from="1554474416219" duration="517000" />
       <workItem from="1554475957777" duration="27000" />
       <workItem from="1554476393044" duration="5845000" />
+      <workItem from="1554556343622" duration="588000" />
+      <workItem from="1554705229162" duration="110000" />
+      <workItem from="1554738338954" duration="28000" />
+      <workItem from="1554818069375" duration="437000" />
+      <workItem from="1554903692104" duration="3763000" />
+      <workItem from="1554907641281" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32433000" />
+    <option name="totallyTimeSpent" value="37373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3040057" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3297568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -272,42 +331,76 @@
       <window_info anchor="right" id="Data View" order="3" />
       <window_info anchor="right" id="SciView" order="4" weight="0.4923611" />
       <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="R Graphics" order="6" />
+      <window_info anchor="right" id="R Packages" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Latex.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file:///anaconda3/lib/python3.6/_bootlocale.py" />
     <entry file="file:///anaconda3/lib/python3.6/codecs.py" />
-    <entry file="file://$PROJECT_DIR$/DFA_convert.py">
+    <entry file="file://$PROJECT_DIR$/Latex_UI.py" />
+    <entry file="file://$PROJECT_DIR$/test_file/test_file.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Latex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="262">
+          <caret line="127" column="28" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
+          <folding>
+            <element signature="e#135#202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/Latex_UI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Latex_UI_launcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1470">
+          <caret line="98" column="28" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
+          <folding>
+            <element signature="e#147#189#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4800">
+          <caret line="321" selection-start-line="321" selection-end-line="321" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3177">
-          <caret line="16" column="105" selection-start-line="16" selection-start-column="105" selection-end-line="16" selection-end-column="105" />
+        <state relative-caret-position="1620">
+          <caret line="108" column="36" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Latex_UI.py">
+    <entry file="file://$PROJECT_DIR$/DFA_convert.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="59" selection-start-line="59" selection-end-line="66" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Latex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="63" selection-start-line="63" selection-end-line="63" selection-end-column="25" />
-          <folding>
-            <element signature="e#135#202#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>

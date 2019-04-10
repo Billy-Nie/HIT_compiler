@@ -19,21 +19,26 @@ class MainWindowUIClass(ui.Ui_MainWindow):
         super().setupUi(MainWindow)
 
     def tokenPrint(self, token_l):
+        self.tokenBrowser.clear()
         self.tokenBrowser.append("token\t类型\t值\t行号")
         for token in token_l:
             self.tokenBrowser.append(token)
 
     def characterPrint(self, character_l):
+        self.tokenListBrowser.clear()
         self.tokenListBrowser.append("符号表")
         for character in character_l:
             self.tokenListBrowser.append(character)
 
     def errorPrint(self, error_l):
+        self.errorbrowser.clear()
         for error in error_l:
             self.errorbrowser.append(error)
 
     #slot
     def ReturnPressed(self):
+        self.codeDisplay.clear()
+
         chardfa = None
         commentdfa = None
         digitdfa = None
@@ -59,8 +64,10 @@ class MainWindowUIClass(ui.Ui_MainWindow):
         else:
             file = open(input_text)
             for line in file.readlines():
-                self.codeDisplay.append(line[:-1])
-
+                if line[-1] == "\n":
+                    self.codeDisplay.append(line[:-1])
+                else:
+                    self.codeDisplay.append(line)
             if False in dfa_l:
                 character_table, error_l, token_l = Latex_analyse_main(input_text, digitDFA, charDFA, stringDFA,
                                                                        commentDFA, o_H_DFA)
@@ -74,13 +81,26 @@ class MainWindowUIClass(ui.Ui_MainWindow):
 
     #slot
     def SelectSlot(self):
-        input_text = self.lineEdit.text()
+        # input_text = self.lineEdit.text()
+        #
+        # character_table, error_l, token_l = Latex_analyse_main(input_text, digitDFA, charDFA, stringDFA, commentDFA, o_H_DFA)
+        #
+        # self.tokenPrint(token_l)
+        # self.errorPrint(error_l)
+        # self.characterPrint(character_table)
 
-        character_table, error_l, token_l = Latex_analyse_main(input_text, digitDFA, charDFA, stringDFA, commentDFA, o_H_DFA)
+        changed_code = self.codeDisplay.toPlainText()
+        file_path = self.lineEdit.text()
 
-        self.tokenPrint(token_l)
-        self.errorPrint(error_l)
-        self.characterPrint(character_table)
+        file = open(file_path, "w+", encoding="gbk")
+        file.write(changed_code)
+        file.close()
+
+        self.ReturnPressed()
+
+
+
+
 
 
 

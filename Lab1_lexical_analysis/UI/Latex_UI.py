@@ -72,7 +72,7 @@ class Ui_MainWindow(QObject):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "文件"))
-        self.pushButton.setText(_translate("MainWindow", "确定"))
+        self.pushButton.setText(_translate("MainWindow", "修改确定"))
 
     @pyqtSlot()
     def SelectSlot(self):
