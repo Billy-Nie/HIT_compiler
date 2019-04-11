@@ -105,6 +105,7 @@ def Latex_analyse_main(file_path, digitDFA, charDFA, stringDFA, commentDFA, o_H_
         line_number += 1
         program_line = line
 
+
         #处理跨行注释
         iscomment = False
         if len(line)>=2 and line[0] == "/" and line[1] == "*" :
@@ -122,8 +123,13 @@ def Latex_analyse_main(file_path, digitDFA, charDFA, stringDFA, commentDFA, o_H_
             if "nbx" in program_line:
                 h = 1
             if program_line[1] != "/":
-                comment_true, error_message = commentDFA.in_commentDFA(program_line[:-1]) #跨行注释, 需要删掉最后一行最后面的换行符
+                if program_line[-1] == "\n":
+                    comment_true, error_message = commentDFA.in_commentDFA(program_line[:-1]) #跨行注释, 需要删掉最后一行最后面的换行符
+                else:
+                    comment_true, error_message = commentDFA.in_commentDFA(program_line)
             else:
+                if program_line[-1] != "\n":
+                    program_line += "\n"
                 comment_true, error_message = commentDFA.in_commentDFA(program_line) #单行注释, 最后的换行符是结束的标志, 不能删除
             if comment_true:
                 token_l.append(program_line.replace("\n", "") + "\t<注释\t"+ program_line.replace("\n", "") + ">\t" + str(line_number))
@@ -134,8 +140,10 @@ def Latex_analyse_main(file_path, digitDFA, charDFA, stringDFA, commentDFA, o_H_
         else:
             token = ""
             i = 0
+            if line[-1] != "\n":
+                line += "\n"
             while( i < len(line)):
-                if line[i] not in boundary and line[i] not in operator and line[i] != " ":
+                if line[i] not in boundary and line[i] not in operator and line[i] != " " and line[i] != '\n':
                     token += line[i]
                 else:
                     if token != "":

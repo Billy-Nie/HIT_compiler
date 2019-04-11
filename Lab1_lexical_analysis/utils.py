@@ -207,7 +207,7 @@ class CommentDFA:
             ch = program_fraction[i]
             DFA_state = self.__commentDFA[state]
 
-            if ch in DFA_state and ch != "c":
+            if ch in DFA_state and ch != "c" and ch != '#':
                 state = DFA_state.index(ch)
             elif "a" in DFA_state and ch not in ["/", "*"]:
                 state = DFA_state.index("a")
