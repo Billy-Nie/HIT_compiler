@@ -1,0 +1,16 @@
+int main() {
+    while(s > 2)
+    {
+        int a = 3;
+        if (b > 2)
+        {
+            b = 1 + 1;
+        }
+        else
+        {
+            c = 2 + 2;
+        }
+
+        int b[12];
+    }
+}

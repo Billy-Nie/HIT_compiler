@@ -1,0 +1,1442 @@
+S'#int -> S
+S'#short -> S
+S'#long -> S
+S'#char -> S
+S'#float -> S
+S'#double -> S
+S'#void -> S
+S'#unsigned -> S
+S#int -> func funcs
+S#short -> func funcs
+S#long -> func funcs
+S#char -> func funcs
+S#float -> func funcs
+S#double -> func funcs
+S#void -> func funcs
+S#unsigned -> func funcs
+funcs#int -> func funcs
+funcs#short -> func funcs
+funcs#long -> func funcs
+funcs#char -> func funcs
+funcs#float -> func funcs
+funcs#double -> func funcs
+funcs#void -> func funcs
+funcs#unsigned -> func funcs
+funcs## -> $
+func#int -> type IDN ( args ) func_body
+func#short -> type IDN ( args ) func_body
+func#long -> type IDN ( args ) func_body
+func#char -> type IDN ( args ) func_body
+func#float -> type IDN ( args ) func_body
+func#double -> type IDN ( args ) func_body
+func#void -> type IDN ( args ) func_body
+func#unsigned -> type IDN ( args ) func_body
+type#int -> int
+type#short -> short
+type#long -> long
+type#char -> char
+type#float -> float
+type#double -> double
+type#void -> void
+type#unsigned -> unsigned type
+args#int -> type IDN arg
+args#short -> type IDN arg
+args#long -> type IDN arg
+args#char -> type IDN arg
+args#float -> type IDN arg
+args#double -> type IDN arg
+args#void -> type IDN arg
+args#unsigned -> type IDN arg
+args#) -> $
+arg#, -> , type IDN arg
+arg#) -> $
+func_body#; -> ;
+func_body#{ -> block
+block#{ -> { define_stmts stmts }
+define_stmts#int -> define_stmt define_stmts
+define_stmts#short -> define_stmt define_stmts
+define_stmts#long -> define_stmt define_stmts
+define_stmts#char -> define_stmt define_stmts
+define_stmts#float -> define_stmt define_stmts
+define_stmts#double -> define_stmt define_stmts
+define_stmts#void -> define_stmt define_stmts
+define_stmts#unsigned -> define_stmt define_stmts
+define_stmts#continue -> $
+define_stmts#break -> $
+define_stmts#return -> $
+define_stmts#while -> $
+define_stmts#for -> $
+define_stmts#do -> $
+define_stmts#if -> $
+define_stmts#switch -> $
+define_stmts#( -> $
+define_stmts#IDN -> $
+define_stmts#FLOAT -> $
+define_stmts#CHAR -> $
+define_stmts#STR -> $
+define_stmts#INT10 -> $
+define_stmts#INT8 -> $
+define_stmts#INT16 -> $
+define_stmts#} -> $
+define_stmts#int -> $
+define_stmts#short -> $
+define_stmts#long -> $
+define_stmts#char -> $
+define_stmts#float -> $
+define_stmts#double -> $
+define_stmts#void -> $
+define_stmts#unsigned -> $
+define_stmts## -> $
+define_stmts#else -> $
+define_stmts#case -> $
+define_stmts#default -> $
+define_stmt#int -> type IDN init vars ;
+define_stmt#short -> type IDN init vars ;
+define_stmt#long -> type IDN init vars ;
+define_stmt#char -> type IDN init vars ;
+define_stmt#float -> type IDN init vars ;
+define_stmt#double -> type IDN init vars ;
+define_stmt#void -> type IDN init vars ;
+define_stmt#unsigned -> type IDN init vars ;
+init#= -> = expression
+init#, -> $
+init#; -> $
+init#int -> $
+init#short -> $
+init#long -> $
+init#char -> $
+init#float -> $
+init#double -> $
+init#void -> $
+init#unsigned -> $
+init#continue -> $
+init#break -> $
+init#return -> $
+init#while -> $
+init#for -> $
+init#do -> $
+init#if -> $
+init#switch -> $
+init#( -> $
+init#IDN -> $
+init#FLOAT -> $
+init#CHAR -> $
+init#STR -> $
+init#INT10 -> $
+init#INT8 -> $
+init#INT16 -> $
+init#} -> $
+init## -> $
+init#else -> $
+init#case -> $
+init#default -> $
+vars#, -> , IDN init vars
+vars#; -> $
+stmts#continue -> stmt stmts
+stmts#break -> stmt stmts
+stmts#return -> stmt stmts
+stmts#while -> stmt stmts
+stmts#for -> stmt stmts
+stmts#do -> stmt stmts
+stmts#if -> stmt stmts
+stmts#switch -> stmt stmts
+stmts#( -> stmt stmts
+stmts#IDN -> stmt stmts
+stmts#FLOAT -> stmt stmts
+stmts#CHAR -> stmt stmts
+stmts#STR -> stmt stmts
+stmts#INT10 -> stmt stmts
+stmts#INT8 -> stmt stmts
+stmts#INT16 -> stmt stmts
+stmts#} -> $
+stmts#case -> $
+stmts#default -> $
+stmts#continue -> $
+stmts#break -> $
+stmts#return -> $
+stmts#while -> $
+stmts#for -> $
+stmts#do -> $
+stmts#if -> $
+stmts#switch -> $
+stmts#( -> $
+stmts#IDN -> $
+stmts#FLOAT -> $
+stmts#CHAR -> $
+stmts#STR -> $
+stmts#INT10 -> $
+stmts#INT8 -> $
+stmts#INT16 -> $
+stmt#( -> assign_stmt
+stmt#IDN -> assign_stmt
+stmt#FLOAT -> assign_stmt
+stmt#CHAR -> assign_stmt
+stmt#STR -> assign_stmt
+stmt#INT10 -> assign_stmt
+stmt#INT8 -> assign_stmt
+stmt#INT16 -> assign_stmt
+stmt#continue -> jump_stmt
+stmt#break -> jump_stmt
+stmt#return -> jump_stmt
+stmt#while -> iteration_stmt
+stmt#for -> iteration_stmt
+stmt#do -> iteration_stmt
+stmt#if -> branch_stmt
+stmt#switch -> branch_stmt
+assign_stmt#( -> expression ;
+assign_stmt#IDN -> expression ;
+assign_stmt#FLOAT -> expression ;
+assign_stmt#CHAR -> expression ;
+assign_stmt#STR -> expression ;
+assign_stmt#INT10 -> expression ;
+assign_stmt#INT8 -> expression ;
+assign_stmt#INT16 -> expression ;
+jump_stmt#continue -> continue ;
+jump_stmt#break -> break ;
+jump_stmt#return -> return isnull_expr ;
+iteration_stmt#while -> while ( logical_expression ) block_stmt
+iteration_stmt#for -> for ( isnull_expr ; isnull_expr ; isnull_expr ) block_stmt
+iteration_stmt#do -> do block_stmt while ( logical_expression ) ;
+branch_stmt#if -> if ( logical_expression ) block_stmt result
+result#else -> else block_stmt
+result#continue -> $
+result#break -> $
+result#return -> $
+result#while -> $
+result#for -> $
+result#do -> $
+result#if -> $
+result#switch -> $
+result#( -> $
+result#IDN -> $
+result#FLOAT -> $
+result#CHAR -> $
+result#STR -> $
+result#INT10 -> $
+result#INT8 -> $
+result#INT16 -> $
+result#} -> $
+result#case -> $
+result#default -> $
+logical_expression#! -> ! expression bool_expression
+logical_expression#( -> expression bool_expression
+logical_expression#IDN -> expression bool_expression
+logical_expression#FLOAT -> expression bool_expression
+logical_expression#CHAR -> expression bool_expression
+logical_expression#STR -> expression bool_expression
+logical_expression#INT10 -> expression bool_expression
+logical_expression#INT8 -> expression bool_expression
+logical_expression#INT16 -> expression bool_expression
+bool_expression#&& -> lop expression bool_expression
+bool_expression#|| -> lop expression bool_expression
+bool_expression#) -> $
+lop#&& -> &&
+lop#|| -> ||
+branch_stmt#switch -> switch ( IDN ) { case_stmt case_stmts default_stmt }
+case_stmts#case -> case_stmt case_stmts
+case_stmts#default -> $
+case_stmt#case -> case const : stmts
+default_stmt#default -> default : stmts
+block_stmt#{ -> { define_stmts stmts }
+isnull_expr#( -> expression
+isnull_expr#IDN -> expression
+isnull_expr#FLOAT -> expression
+isnull_expr#CHAR -> expression
+isnull_expr#STR -> expression
+isnull_expr#INT10 -> expression
+isnull_expr#INT8 -> expression
+isnull_expr#INT16 -> expression
+isnull_expr#; -> $
+isnull_expr#) -> $
+isnull_expr#, -> $
+expression#( -> value operation
+expression#IDN -> value operation
+expression#FLOAT -> value operation
+expression#CHAR -> value operation
+expression#STR -> value operation
+expression#INT10 -> value operation
+expression#INT8 -> value operation
+expression#INT16 -> value operation
+operation#> -> compare_op value
+operation#>= -> compare_op value
+operation#< -> compare_op value
+operation#<= -> compare_op value
+operation#== -> compare_op value
+operation#!= -> compare_op value
+operation#= -> equal_op value
+operation#+= -> equal_op value
+operation#-= -> equal_op value
+operation#*= -> equal_op value
+operation#/= -> equal_op value
+operation#%= -> equal_op value
+operation#, -> $
+operation#; -> $
+operation#int -> $
+operation#short -> $
+operation#long -> $
+operation#char -> $
+operation#float -> $
+operation#double -> $
+operation#void -> $
+operation#unsigned -> $
+operation#continue -> $
+operation#break -> $
+operation#return -> $
+operation#while -> $
+operation#for -> $
+operation#do -> $
+operation#if -> $
+operation#switch -> $
+operation#( -> $
+operation#IDN -> $
+operation#FLOAT -> $
+operation#CHAR -> $
+operation#STR -> $
+operation#INT10 -> $
+operation#INT8 -> $
+operation#INT16 -> $
+operation#} -> $
+operation## -> $
+operation#&& -> $
+operation#|| -> $
+operation#) -> $
+operation#else -> $
+operation#case -> $
+operation#default -> $
+compare_op#> -> >
+compare_op#>= -> >=
+compare_op#< -> <
+compare_op#<= -> <=
+compare_op#== -> ==
+compare_op#!= -> !=
+equal_op#= -> =
+equal_op#+= -> +=
+equal_op#-= -> -=
+equal_op#*= -> *=
+equal_op#/= -> /=
+equal_op#%= -> %=
+value#( -> item value'
+value#IDN -> item value'
+value#FLOAT -> item value'
+value#CHAR -> item value'
+value#STR -> item value'
+value#INT10 -> item value'
+value#INT8 -> item value'
+value#INT16 -> item value'
+value'#+ -> + item value'
+value'#- -> - item value'
+value'#> -> $
+value'#>= -> $
+value'#< -> $
+value'#<= -> $
+value'#== -> $
+value'#!= -> $
+value'#= -> $
+value'#+= -> $
+value'#-= -> $
+value'#*= -> $
+value'#/= -> $
+value'#%= -> $
+value'#, -> $
+value'#; -> $
+value'#int -> $
+value'#short -> $
+value'#long -> $
+value'#char -> $
+value'#float -> $
+value'#double -> $
+value'#void -> $
+value'#unsigned -> $
+value'#continue -> $
+value'#break -> $
+value'#return -> $
+value'#while -> $
+value'#for -> $
+value'#do -> $
+value'#if -> $
+value'#switch -> $
+value'#( -> $
+value'#IDN -> $
+value'#FLOAT -> $
+value'#CHAR -> $
+value'#STR -> $
+value'#INT10 -> $
+value'#INT8 -> $
+value'#INT16 -> $
+value'#} -> $
+value'## -> $
+value'#&& -> $
+value'#|| -> $
+value'#) -> $
+value'#else -> $
+value'#case -> $
+value'#default -> $
+item#( -> factor item'
+item#IDN -> factor item'
+item#FLOAT -> factor item'
+item#CHAR -> factor item'
+item#STR -> factor item'
+item#INT10 -> factor item'
+item#INT8 -> factor item'
+item#INT16 -> factor item'
+item'#* -> * factor item'
+item'#/ -> / factor item'
+item'#% -> % factor item'
+item'#+ -> $
+item'#- -> $
+item'#> -> $
+item'#>= -> $
+item'#< -> $
+item'#<= -> $
+item'#== -> $
+item'#!= -> $
+item'#= -> $
+item'#+= -> $
+item'#-= -> $
+item'#*= -> $
+item'#/= -> $
+item'#%= -> $
+item'#, -> $
+item'#; -> $
+item'#int -> $
+item'#short -> $
+item'#long -> $
+item'#char -> $
+item'#float -> $
+item'#double -> $
+item'#void -> $
+item'#unsigned -> $
+item'#continue -> $
+item'#break -> $
+item'#return -> $
+item'#while -> $
+item'#for -> $
+item'#do -> $
+item'#if -> $
+item'#switch -> $
+item'#( -> $
+item'#IDN -> $
+item'#FLOAT -> $
+item'#CHAR -> $
+item'#STR -> $
+item'#INT10 -> $
+item'#INT8 -> $
+item'#INT16 -> $
+item'#} -> $
+item'## -> $
+item'#&& -> $
+item'#|| -> $
+item'#) -> $
+item'#else -> $
+item'#case -> $
+item'#default -> $
+factor#( -> ( value )
+factor#IDN -> IDN call_func
+factor#FLOAT -> const
+factor#CHAR -> const
+factor#STR -> const
+factor#INT10 -> const
+factor#INT8 -> const
+factor#INT16 -> const
+call_func#( -> ( es )
+call_func#* -> $
+call_func#/ -> $
+call_func#% -> $
+call_func#+ -> $
+call_func#- -> $
+call_func#> -> $
+call_func#>= -> $
+call_func#< -> $
+call_func#<= -> $
+call_func#== -> $
+call_func#!= -> $
+call_func#= -> $
+call_func#+= -> $
+call_func#-= -> $
+call_func#*= -> $
+call_func#/= -> $
+call_func#%= -> $
+call_func#, -> $
+call_func#; -> $
+call_func#int -> $
+call_func#short -> $
+call_func#long -> $
+call_func#char -> $
+call_func#float -> $
+call_func#double -> $
+call_func#void -> $
+call_func#unsigned -> $
+call_func#continue -> $
+call_func#break -> $
+call_func#return -> $
+call_func#while -> $
+call_func#for -> $
+call_func#do -> $
+call_func#if -> $
+call_func#switch -> $
+call_func#( -> $
+call_func#IDN -> $
+call_func#FLOAT -> $
+call_func#CHAR -> $
+call_func#STR -> $
+call_func#INT10 -> $
+call_func#INT8 -> $
+call_func#INT16 -> $
+call_func#} -> $
+call_func## -> $
+call_func#&& -> $
+call_func#|| -> $
+call_func#) -> $
+call_func#else -> $
+call_func#case -> $
+call_func#default -> $
+es#( -> isnull_expr isnull_es
+es#IDN -> isnull_expr isnull_es
+es#FLOAT -> isnull_expr isnull_es
+es#CHAR -> isnull_expr isnull_es
+es#STR -> isnull_expr isnull_es
+es#INT10 -> isnull_expr isnull_es
+es#INT8 -> isnull_expr isnull_es
+es#INT16 -> isnull_expr isnull_es
+es#, -> isnull_expr isnull_es
+es#) -> isnull_expr isnull_es
+isnull_es#, -> , isnull_expr isnull_es
+isnull_es#) -> $
+const#INT10 -> num_const
+const#INT8 -> num_const
+const#INT16 -> num_const
+const#FLOAT -> FLOAT
+const#CHAR -> CHAR
+const#STR -> STR
+num_const#INT10 -> INT10
+num_const#INT8 -> INT8
+num_const#INT16 -> INT16
+S'##-> synch
+S##-> synch
+func##-> synch
+type#IDN-> synch
+type#IDN-> synch
+type#IDN-> synch
+type#IDN-> synch
+type#IDN-> synch
+type#IDN-> synch
+type#IDN-> synch
+type#IDN-> synch
+func_body#int-> synch
+func_body#short-> synch
+func_body#long-> synch
+func_body#char-> synch
+func_body#float-> synch
+func_body#double-> synch
+func_body#void-> synch
+func_body#unsigned-> synch
+func_body##-> synch
+func_body#int-> synch
+func_body#short-> synch
+func_body#long-> synch
+func_body#char-> synch
+func_body#float-> synch
+func_body#double-> synch
+func_body#void-> synch
+func_body#unsigned-> synch
+func_body##-> synch
+block#int-> synch
+block#short-> synch
+block#long-> synch
+block#char-> synch
+block#float-> synch
+block#double-> synch
+block#void-> synch
+block#unsigned-> synch
+block##-> synch
+define_stmt#continue-> synch
+define_stmt#break-> synch
+define_stmt#return-> synch
+define_stmt#while-> synch
+define_stmt#for-> synch
+define_stmt#do-> synch
+define_stmt#if-> synch
+define_stmt#switch-> synch
+define_stmt#(-> synch
+define_stmt#IDN-> synch
+define_stmt#FLOAT-> synch
+define_stmt#CHAR-> synch
+define_stmt#STR-> synch
+define_stmt#INT10-> synch
+define_stmt#INT8-> synch
+define_stmt#INT16-> synch
+define_stmt#}-> synch
+define_stmt##-> synch
+define_stmt#else-> synch
+define_stmt#case-> synch
+define_stmt#default-> synch
+stmt#}-> synch
+stmt#case-> synch
+stmt#default-> synch
+stmt#}-> synch
+stmt#case-> synch
+stmt#default-> synch
+stmt#}-> synch
+stmt#case-> synch
+stmt#default-> synch
+stmt#}-> synch
+stmt#case-> synch
+stmt#default-> synch
+assign_stmt#continue-> synch
+assign_stmt#break-> synch
+assign_stmt#return-> synch
+assign_stmt#while-> synch
+assign_stmt#for-> synch
+assign_stmt#do-> synch
+assign_stmt#if-> synch
+assign_stmt#switch-> synch
+assign_stmt#}-> synch
+assign_stmt#case-> synch
+assign_stmt#default-> synch
+jump_stmt#while-> synch
+jump_stmt#for-> synch
+jump_stmt#do-> synch
+jump_stmt#if-> synch
+jump_stmt#switch-> synch
+jump_stmt#(-> synch
+jump_stmt#IDN-> synch
+jump_stmt#FLOAT-> synch
+jump_stmt#CHAR-> synch
+jump_stmt#STR-> synch
+jump_stmt#INT10-> synch
+jump_stmt#INT8-> synch
+jump_stmt#INT16-> synch
+jump_stmt#}-> synch
+jump_stmt#case-> synch
+jump_stmt#default-> synch
+jump_stmt#while-> synch
+jump_stmt#for-> synch
+jump_stmt#do-> synch
+jump_stmt#if-> synch
+jump_stmt#switch-> synch
+jump_stmt#(-> synch
+jump_stmt#IDN-> synch
+jump_stmt#FLOAT-> synch
+jump_stmt#CHAR-> synch
+jump_stmt#STR-> synch
+jump_stmt#INT10-> synch
+jump_stmt#INT8-> synch
+jump_stmt#INT16-> synch
+jump_stmt#}-> synch
+jump_stmt#case-> synch
+jump_stmt#default-> synch
+jump_stmt#while-> synch
+jump_stmt#for-> synch
+jump_stmt#do-> synch
+jump_stmt#if-> synch
+jump_stmt#switch-> synch
+jump_stmt#(-> synch
+jump_stmt#IDN-> synch
+jump_stmt#FLOAT-> synch
+jump_stmt#CHAR-> synch
+jump_stmt#STR-> synch
+jump_stmt#INT10-> synch
+jump_stmt#INT8-> synch
+jump_stmt#INT16-> synch
+jump_stmt#}-> synch
+jump_stmt#case-> synch
+jump_stmt#default-> synch
+iteration_stmt#continue-> synch
+iteration_stmt#break-> synch
+iteration_stmt#return-> synch
+iteration_stmt#if-> synch
+iteration_stmt#switch-> synch
+iteration_stmt#(-> synch
+iteration_stmt#IDN-> synch
+iteration_stmt#FLOAT-> synch
+iteration_stmt#CHAR-> synch
+iteration_stmt#STR-> synch
+iteration_stmt#INT10-> synch
+iteration_stmt#INT8-> synch
+iteration_stmt#INT16-> synch
+iteration_stmt#}-> synch
+iteration_stmt#case-> synch
+iteration_stmt#default-> synch
+iteration_stmt#continue-> synch
+iteration_stmt#break-> synch
+iteration_stmt#return-> synch
+iteration_stmt#if-> synch
+iteration_stmt#switch-> synch
+iteration_stmt#(-> synch
+iteration_stmt#IDN-> synch
+iteration_stmt#FLOAT-> synch
+iteration_stmt#CHAR-> synch
+iteration_stmt#STR-> synch
+iteration_stmt#INT10-> synch
+iteration_stmt#INT8-> synch
+iteration_stmt#INT16-> synch
+iteration_stmt#}-> synch
+iteration_stmt#case-> synch
+iteration_stmt#default-> synch
+iteration_stmt#continue-> synch
+iteration_stmt#break-> synch
+iteration_stmt#return-> synch
+iteration_stmt#if-> synch
+iteration_stmt#switch-> synch
+iteration_stmt#(-> synch
+iteration_stmt#IDN-> synch
+iteration_stmt#FLOAT-> synch
+iteration_stmt#CHAR-> synch
+iteration_stmt#STR-> synch
+iteration_stmt#INT10-> synch
+iteration_stmt#INT8-> synch
+iteration_stmt#INT16-> synch
+iteration_stmt#}-> synch
+iteration_stmt#case-> synch
+iteration_stmt#default-> synch
+branch_stmt#continue-> synch
+branch_stmt#break-> synch
+branch_stmt#return-> synch
+branch_stmt#while-> synch
+branch_stmt#for-> synch
+branch_stmt#do-> synch
+branch_stmt#(-> synch
+branch_stmt#IDN-> synch
+branch_stmt#FLOAT-> synch
+branch_stmt#CHAR-> synch
+branch_stmt#STR-> synch
+branch_stmt#INT10-> synch
+branch_stmt#INT8-> synch
+branch_stmt#INT16-> synch
+branch_stmt#}-> synch
+branch_stmt#case-> synch
+branch_stmt#default-> synch
+logical_expression#)-> synch
+logical_expression#)-> synch
+lop#(-> synch
+lop#IDN-> synch
+lop#FLOAT-> synch
+lop#CHAR-> synch
+lop#STR-> synch
+lop#INT10-> synch
+lop#INT8-> synch
+lop#INT16-> synch
+lop#(-> synch
+lop#IDN-> synch
+lop#FLOAT-> synch
+lop#CHAR-> synch
+lop#STR-> synch
+lop#INT10-> synch
+lop#INT8-> synch
+lop#INT16-> synch
+branch_stmt#continue-> synch
+branch_stmt#break-> synch
+branch_stmt#return-> synch
+branch_stmt#while-> synch
+branch_stmt#for-> synch
+branch_stmt#do-> synch
+branch_stmt#(-> synch
+branch_stmt#IDN-> synch
+branch_stmt#FLOAT-> synch
+branch_stmt#CHAR-> synch
+branch_stmt#STR-> synch
+branch_stmt#INT10-> synch
+branch_stmt#INT8-> synch
+branch_stmt#INT16-> synch
+branch_stmt#}-> synch
+branch_stmt#case-> synch
+branch_stmt#default-> synch
+case_stmt#default-> synch
+case_stmt#continue-> synch
+case_stmt#break-> synch
+case_stmt#return-> synch
+case_stmt#while-> synch
+case_stmt#for-> synch
+case_stmt#do-> synch
+case_stmt#if-> synch
+case_stmt#switch-> synch
+case_stmt#(-> synch
+case_stmt#IDN-> synch
+case_stmt#FLOAT-> synch
+case_stmt#CHAR-> synch
+case_stmt#STR-> synch
+case_stmt#INT10-> synch
+case_stmt#INT8-> synch
+case_stmt#INT16-> synch
+case_stmt#}-> synch
+default_stmt#}-> synch
+block_stmt#continue-> synch
+block_stmt#break-> synch
+block_stmt#return-> synch
+block_stmt#while-> synch
+block_stmt#for-> synch
+block_stmt#do-> synch
+block_stmt#if-> synch
+block_stmt#switch-> synch
+block_stmt#(-> synch
+block_stmt#IDN-> synch
+block_stmt#FLOAT-> synch
+block_stmt#CHAR-> synch
+block_stmt#STR-> synch
+block_stmt#INT10-> synch
+block_stmt#INT8-> synch
+block_stmt#INT16-> synch
+block_stmt#}-> synch
+block_stmt#else-> synch
+block_stmt#case-> synch
+block_stmt#default-> synch
+expression#,-> synch
+expression#;-> synch
+expression#int-> synch
+expression#short-> synch
+expression#long-> synch
+expression#char-> synch
+expression#float-> synch
+expression#double-> synch
+expression#void-> synch
+expression#unsigned-> synch
+expression#continue-> synch
+expression#break-> synch
+expression#return-> synch
+expression#while-> synch
+expression#for-> synch
+expression#do-> synch
+expression#if-> synch
+expression#switch-> synch
+expression#}-> synch
+expression##-> synch
+expression#&&-> synch
+expression#||-> synch
+expression#)-> synch
+expression#else-> synch
+expression#case-> synch
+expression#default-> synch
+compare_op#(-> synch
+compare_op#IDN-> synch
+compare_op#FLOAT-> synch
+compare_op#CHAR-> synch
+compare_op#STR-> synch
+compare_op#INT10-> synch
+compare_op#INT8-> synch
+compare_op#INT16-> synch
+compare_op#(-> synch
+compare_op#IDN-> synch
+compare_op#FLOAT-> synch
+compare_op#CHAR-> synch
+compare_op#STR-> synch
+compare_op#INT10-> synch
+compare_op#INT8-> synch
+compare_op#INT16-> synch
+compare_op#(-> synch
+compare_op#IDN-> synch
+compare_op#FLOAT-> synch
+compare_op#CHAR-> synch
+compare_op#STR-> synch
+compare_op#INT10-> synch
+compare_op#INT8-> synch
+compare_op#INT16-> synch
+compare_op#(-> synch
+compare_op#IDN-> synch
+compare_op#FLOAT-> synch
+compare_op#CHAR-> synch
+compare_op#STR-> synch
+compare_op#INT10-> synch
+compare_op#INT8-> synch
+compare_op#INT16-> synch
+compare_op#(-> synch
+compare_op#IDN-> synch
+compare_op#FLOAT-> synch
+compare_op#CHAR-> synch
+compare_op#STR-> synch
+compare_op#INT10-> synch
+compare_op#INT8-> synch
+compare_op#INT16-> synch
+compare_op#(-> synch
+compare_op#IDN-> synch
+compare_op#FLOAT-> synch
+compare_op#CHAR-> synch
+compare_op#STR-> synch
+compare_op#INT10-> synch
+compare_op#INT8-> synch
+compare_op#INT16-> synch
+equal_op#(-> synch
+equal_op#IDN-> synch
+equal_op#FLOAT-> synch
+equal_op#CHAR-> synch
+equal_op#STR-> synch
+equal_op#INT10-> synch
+equal_op#INT8-> synch
+equal_op#INT16-> synch
+equal_op#(-> synch
+equal_op#IDN-> synch
+equal_op#FLOAT-> synch
+equal_op#CHAR-> synch
+equal_op#STR-> synch
+equal_op#INT10-> synch
+equal_op#INT8-> synch
+equal_op#INT16-> synch
+equal_op#(-> synch
+equal_op#IDN-> synch
+equal_op#FLOAT-> synch
+equal_op#CHAR-> synch
+equal_op#STR-> synch
+equal_op#INT10-> synch
+equal_op#INT8-> synch
+equal_op#INT16-> synch
+equal_op#(-> synch
+equal_op#IDN-> synch
+equal_op#FLOAT-> synch
+equal_op#CHAR-> synch
+equal_op#STR-> synch
+equal_op#INT10-> synch
+equal_op#INT8-> synch
+equal_op#INT16-> synch
+equal_op#(-> synch
+equal_op#IDN-> synch
+equal_op#FLOAT-> synch
+equal_op#CHAR-> synch
+equal_op#STR-> synch
+equal_op#INT10-> synch
+equal_op#INT8-> synch
+equal_op#INT16-> synch
+equal_op#(-> synch
+equal_op#IDN-> synch
+equal_op#FLOAT-> synch
+equal_op#CHAR-> synch
+equal_op#STR-> synch
+equal_op#INT10-> synch
+equal_op#INT8-> synch
+equal_op#INT16-> synch
+value#>-> synch
+value#>=-> synch
+value#<-> synch
+value#<=-> synch
+value#==-> synch
+value#!=-> synch
+value#=-> synch
+value#+=-> synch
+value#-=-> synch
+value#*=-> synch
+value#/=-> synch
+value#%=-> synch
+value#,-> synch
+value#;-> synch
+value#int-> synch
+value#short-> synch
+value#long-> synch
+value#char-> synch
+value#float-> synch
+value#double-> synch
+value#void-> synch
+value#unsigned-> synch
+value#continue-> synch
+value#break-> synch
+value#return-> synch
+value#while-> synch
+value#for-> synch
+value#do-> synch
+value#if-> synch
+value#switch-> synch
+value#}-> synch
+value##-> synch
+value#&&-> synch
+value#||-> synch
+value#)-> synch
+value#else-> synch
+value#case-> synch
+value#default-> synch
+item#+-> synch
+item#--> synch
+item#>-> synch
+item#>=-> synch
+item#<-> synch
+item#<=-> synch
+item#==-> synch
+item#!=-> synch
+item#=-> synch
+item#+=-> synch
+item#-=-> synch
+item#*=-> synch
+item#/=-> synch
+item#%=-> synch
+item#,-> synch
+item#;-> synch
+item#int-> synch
+item#short-> synch
+item#long-> synch
+item#char-> synch
+item#float-> synch
+item#double-> synch
+item#void-> synch
+item#unsigned-> synch
+item#continue-> synch
+item#break-> synch
+item#return-> synch
+item#while-> synch
+item#for-> synch
+item#do-> synch
+item#if-> synch
+item#switch-> synch
+item#}-> synch
+item##-> synch
+item#&&-> synch
+item#||-> synch
+item#)-> synch
+item#else-> synch
+item#case-> synch
+item#default-> synch
+factor#*-> synch
+factor#/-> synch
+factor#%-> synch
+factor#+-> synch
+factor#--> synch
+factor#>-> synch
+factor#>=-> synch
+factor#<-> synch
+factor#<=-> synch
+factor#==-> synch
+factor#!=-> synch
+factor#=-> synch
+factor#+=-> synch
+factor#-=-> synch
+factor#*=-> synch
+factor#/=-> synch
+factor#%=-> synch
+factor#,-> synch
+factor#;-> synch
+factor#int-> synch
+factor#short-> synch
+factor#long-> synch
+factor#char-> synch
+factor#float-> synch
+factor#double-> synch
+factor#void-> synch
+factor#unsigned-> synch
+factor#continue-> synch
+factor#break-> synch
+factor#return-> synch
+factor#while-> synch
+factor#for-> synch
+factor#do-> synch
+factor#if-> synch
+factor#switch-> synch
+factor#}-> synch
+factor##-> synch
+factor#&&-> synch
+factor#||-> synch
+factor#)-> synch
+factor#else-> synch
+factor#case-> synch
+factor#default-> synch
+factor#*-> synch
+factor#/-> synch
+factor#%-> synch
+factor#+-> synch
+factor#--> synch
+factor#>-> synch
+factor#>=-> synch
+factor#<-> synch
+factor#<=-> synch
+factor#==-> synch
+factor#!=-> synch
+factor#=-> synch
+factor#+=-> synch
+factor#-=-> synch
+factor#*=-> synch
+factor#/=-> synch
+factor#%=-> synch
+factor#,-> synch
+factor#;-> synch
+factor#int-> synch
+factor#short-> synch
+factor#long-> synch
+factor#char-> synch
+factor#float-> synch
+factor#double-> synch
+factor#void-> synch
+factor#unsigned-> synch
+factor#continue-> synch
+factor#break-> synch
+factor#return-> synch
+factor#while-> synch
+factor#for-> synch
+factor#do-> synch
+factor#if-> synch
+factor#switch-> synch
+factor#}-> synch
+factor##-> synch
+factor#&&-> synch
+factor#||-> synch
+factor#)-> synch
+factor#else-> synch
+factor#case-> synch
+factor#default-> synch
+factor#*-> synch
+factor#/-> synch
+factor#%-> synch
+factor#+-> synch
+factor#--> synch
+factor#>-> synch
+factor#>=-> synch
+factor#<-> synch
+factor#<=-> synch
+factor#==-> synch
+factor#!=-> synch
+factor#=-> synch
+factor#+=-> synch
+factor#-=-> synch
+factor#*=-> synch
+factor#/=-> synch
+factor#%=-> synch
+factor#,-> synch
+factor#;-> synch
+factor#int-> synch
+factor#short-> synch
+factor#long-> synch
+factor#char-> synch
+factor#float-> synch
+factor#double-> synch
+factor#void-> synch
+factor#unsigned-> synch
+factor#continue-> synch
+factor#break-> synch
+factor#return-> synch
+factor#while-> synch
+factor#for-> synch
+factor#do-> synch
+factor#if-> synch
+factor#switch-> synch
+factor#}-> synch
+factor##-> synch
+factor#&&-> synch
+factor#||-> synch
+factor#)-> synch
+factor#else-> synch
+factor#case-> synch
+factor#default-> synch
+const#:-> synch
+const#*-> synch
+const#/-> synch
+const#%-> synch
+const#+-> synch
+const#--> synch
+const#>-> synch
+const#>=-> synch
+const#<-> synch
+const#<=-> synch
+const#==-> synch
+const#!=-> synch
+const#=-> synch
+const#+=-> synch
+const#-=-> synch
+const#*=-> synch
+const#/=-> synch
+const#%=-> synch
+const#,-> synch
+const#;-> synch
+const#int-> synch
+const#short-> synch
+const#long-> synch
+const#char-> synch
+const#float-> synch
+const#double-> synch
+const#void-> synch
+const#unsigned-> synch
+const#continue-> synch
+const#break-> synch
+const#return-> synch
+const#while-> synch
+const#for-> synch
+const#do-> synch
+const#if-> synch
+const#switch-> synch
+const#(-> synch
+const#IDN-> synch
+const#}-> synch
+const##-> synch
+const#&&-> synch
+const#||-> synch
+const#)-> synch
+const#else-> synch
+const#case-> synch
+const#default-> synch
+const#:-> synch
+const#*-> synch
+const#/-> synch
+const#%-> synch
+const#+-> synch
+const#--> synch
+const#>-> synch
+const#>=-> synch
+const#<-> synch
+const#<=-> synch
+const#==-> synch
+const#!=-> synch
+const#=-> synch
+const#+=-> synch
+const#-=-> synch
+const#*=-> synch
+const#/=-> synch
+const#%=-> synch
+const#,-> synch
+const#;-> synch
+const#int-> synch
+const#short-> synch
+const#long-> synch
+const#char-> synch
+const#float-> synch
+const#double-> synch
+const#void-> synch
+const#unsigned-> synch
+const#continue-> synch
+const#break-> synch
+const#return-> synch
+const#while-> synch
+const#for-> synch
+const#do-> synch
+const#if-> synch
+const#switch-> synch
+const#(-> synch
+const#IDN-> synch
+const#}-> synch
+const##-> synch
+const#&&-> synch
+const#||-> synch
+const#)-> synch
+const#else-> synch
+const#case-> synch
+const#default-> synch
+const#:-> synch
+const#*-> synch
+const#/-> synch
+const#%-> synch
+const#+-> synch
+const#--> synch
+const#>-> synch
+const#>=-> synch
+const#<-> synch
+const#<=-> synch
+const#==-> synch
+const#!=-> synch
+const#=-> synch
+const#+=-> synch
+const#-=-> synch
+const#*=-> synch
+const#/=-> synch
+const#%=-> synch
+const#,-> synch
+const#;-> synch
+const#int-> synch
+const#short-> synch
+const#long-> synch
+const#char-> synch
+const#float-> synch
+const#double-> synch
+const#void-> synch
+const#unsigned-> synch
+const#continue-> synch
+const#break-> synch
+const#return-> synch
+const#while-> synch
+const#for-> synch
+const#do-> synch
+const#if-> synch
+const#switch-> synch
+const#(-> synch
+const#IDN-> synch
+const#}-> synch
+const##-> synch
+const#&&-> synch
+const#||-> synch
+const#)-> synch
+const#else-> synch
+const#case-> synch
+const#default-> synch
+const#:-> synch
+const#*-> synch
+const#/-> synch
+const#%-> synch
+const#+-> synch
+const#--> synch
+const#>-> synch
+const#>=-> synch
+const#<-> synch
+const#<=-> synch
+const#==-> synch
+const#!=-> synch
+const#=-> synch
+const#+=-> synch
+const#-=-> synch
+const#*=-> synch
+const#/=-> synch
+const#%=-> synch
+const#,-> synch
+const#;-> synch
+const#int-> synch
+const#short-> synch
+const#long-> synch
+const#char-> synch
+const#float-> synch
+const#double-> synch
+const#void-> synch
+const#unsigned-> synch
+const#continue-> synch
+const#break-> synch
+const#return-> synch
+const#while-> synch
+const#for-> synch
+const#do-> synch
+const#if-> synch
+const#switch-> synch
+const#(-> synch
+const#IDN-> synch
+const#}-> synch
+const##-> synch
+const#&&-> synch
+const#||-> synch
+const#)-> synch
+const#else-> synch
+const#case-> synch
+const#default-> synch
+num_const#:-> synch
+num_const#*-> synch
+num_const#/-> synch
+num_const#%-> synch
+num_const#+-> synch
+num_const#--> synch
+num_const#>-> synch
+num_const#>=-> synch
+num_const#<-> synch
+num_const#<=-> synch
+num_const#==-> synch
+num_const#!=-> synch
+num_const#=-> synch
+num_const#+=-> synch
+num_const#-=-> synch
+num_const#*=-> synch
+num_const#/=-> synch
+num_const#%=-> synch
+num_const#,-> synch
+num_const#;-> synch
+num_const#int-> synch
+num_const#short-> synch
+num_const#long-> synch
+num_const#char-> synch
+num_const#float-> synch
+num_const#double-> synch
+num_const#void-> synch
+num_const#unsigned-> synch
+num_const#continue-> synch
+num_const#break-> synch
+num_const#return-> synch
+num_const#while-> synch
+num_const#for-> synch
+num_const#do-> synch
+num_const#if-> synch
+num_const#switch-> synch
+num_const#(-> synch
+num_const#IDN-> synch
+num_const#FLOAT-> synch
+num_const#CHAR-> synch
+num_const#STR-> synch
+num_const#}-> synch
+num_const##-> synch
+num_const#&&-> synch
+num_const#||-> synch
+num_const#)-> synch
+num_const#else-> synch
+num_const#case-> synch
+num_const#default-> synch
+num_const#:-> synch
+num_const#*-> synch
+num_const#/-> synch
+num_const#%-> synch
+num_const#+-> synch
+num_const#--> synch
+num_const#>-> synch
+num_const#>=-> synch
+num_const#<-> synch
+num_const#<=-> synch
+num_const#==-> synch
+num_const#!=-> synch
+num_const#=-> synch
+num_const#+=-> synch
+num_const#-=-> synch
+num_const#*=-> synch
+num_const#/=-> synch
+num_const#%=-> synch
+num_const#,-> synch
+num_const#;-> synch
+num_const#int-> synch
+num_const#short-> synch
+num_const#long-> synch
+num_const#char-> synch
+num_const#float-> synch
+num_const#double-> synch
+num_const#void-> synch
+num_const#unsigned-> synch
+num_const#continue-> synch
+num_const#break-> synch
+num_const#return-> synch
+num_const#while-> synch
+num_const#for-> synch
+num_const#do-> synch
+num_const#if-> synch
+num_const#switch-> synch
+num_const#(-> synch
+num_const#IDN-> synch
+num_const#FLOAT-> synch
+num_const#CHAR-> synch
+num_const#STR-> synch
+num_const#}-> synch
+num_const##-> synch
+num_const#&&-> synch
+num_const#||-> synch
+num_const#)-> synch
+num_const#else-> synch
+num_const#case-> synch
+num_const#default-> synch
+num_const#:-> synch
+num_const#*-> synch
+num_const#/-> synch
+num_const#%-> synch
+num_const#+-> synch
+num_const#--> synch
+num_const#>-> synch
+num_const#>=-> synch
+num_const#<-> synch
+num_const#<=-> synch
+num_const#==-> synch
+num_const#!=-> synch
+num_const#=-> synch
+num_const#+=-> synch
+num_const#-=-> synch
+num_const#*=-> synch
+num_const#/=-> synch
+num_const#%=-> synch
+num_const#,-> synch
+num_const#;-> synch
+num_const#int-> synch
+num_const#short-> synch
+num_const#long-> synch
+num_const#char-> synch
+num_const#float-> synch
+num_const#double-> synch
+num_const#void-> synch
+num_const#unsigned-> synch
+num_const#continue-> synch
+num_const#break-> synch
+num_const#return-> synch
+num_const#while-> synch
+num_const#for-> synch
+num_const#do-> synch
+num_const#if-> synch
+num_const#switch-> synch
+num_const#(-> synch
+num_const#IDN-> synch
+num_const#FLOAT-> synch
+num_const#CHAR-> synch
+num_const#STR-> synch
+num_const#}-> synch
+num_const##-> synch
+num_const#&&-> synch
+num_const#||-> synch
+num_const#)-> synch
+num_const#else-> synch
+num_const#case-> synch
+num_const#default-> synch
