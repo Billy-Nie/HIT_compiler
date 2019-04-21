@@ -5,6 +5,7 @@ S'#char -> S
 S'#float -> S
 S'#double -> S
 S'#void -> S
+S'#struct -> S
 S'#unsigned -> S
 S#int -> func funcs
 S#short -> func funcs
@@ -13,6 +14,7 @@ S#char -> func funcs
 S#float -> func funcs
 S#double -> func funcs
 S#void -> func funcs
+S#struct -> func funcs
 S#unsigned -> func funcs
 funcs#int -> func funcs
 funcs#short -> func funcs
@@ -21,6 +23,7 @@ funcs#char -> func funcs
 funcs#float -> func funcs
 funcs#double -> func funcs
 funcs#void -> func funcs
+funcs#struct -> func funcs
 funcs#unsigned -> func funcs
 funcs## -> $
 func#int -> type IDN ( args ) func_body
@@ -30,6 +33,7 @@ func#char -> type IDN ( args ) func_body
 func#float -> type IDN ( args ) func_body
 func#double -> type IDN ( args ) func_body
 func#void -> type IDN ( args ) func_body
+func#struct -> type IDN ( args ) func_body
 func#unsigned -> type IDN ( args ) func_body
 type#int -> int
 type#short -> short
@@ -38,6 +42,7 @@ type#char -> char
 type#float -> float
 type#double -> double
 type#void -> void
+type#struct -> struct
 type#unsigned -> unsigned type
 args#int -> type IDN arg
 args#short -> type IDN arg
@@ -46,6 +51,7 @@ args#char -> type IDN arg
 args#float -> type IDN arg
 args#double -> type IDN arg
 args#void -> type IDN arg
+args#struct -> type IDN arg
 args#unsigned -> type IDN arg
 args#) -> $
 arg#, -> , type IDN arg
@@ -60,6 +66,7 @@ define_stmts#char -> define_stmt define_stmts
 define_stmts#float -> define_stmt define_stmts
 define_stmts#double -> define_stmt define_stmts
 define_stmts#void -> define_stmt define_stmts
+define_stmts#struct -> define_stmt define_stmts
 define_stmts#unsigned -> define_stmt define_stmts
 define_stmts#continue -> $
 define_stmts#break -> $
@@ -85,9 +92,12 @@ define_stmts#char -> $
 define_stmts#float -> $
 define_stmts#double -> $
 define_stmts#void -> $
+define_stmts#struct -> $
 define_stmts#unsigned -> $
 define_stmts## -> $
 define_stmts#else -> $
+define_stmts#, -> $
+define_stmts#; -> $
 define_stmts#case -> $
 define_stmts#default -> $
 define_stmt#int -> type IDN init vars ;
@@ -97,7 +107,10 @@ define_stmt#char -> type IDN init vars ;
 define_stmt#float -> type IDN init vars ;
 define_stmt#double -> type IDN init vars ;
 define_stmt#void -> type IDN init vars ;
+define_stmt#struct -> type IDN init vars ;
 define_stmt#unsigned -> type IDN init vars ;
+init#{ -> block
+init#[ -> [ num_const ] init
 init#= -> = expression
 init#, -> $
 init#; -> $
@@ -108,6 +121,7 @@ init#char -> $
 init#float -> $
 init#double -> $
 init#void -> $
+init#struct -> $
 init#unsigned -> $
 init#continue -> $
 init#break -> $
@@ -278,6 +292,7 @@ operation#char -> $
 operation#float -> $
 operation#double -> $
 operation#void -> $
+operation#struct -> $
 operation#unsigned -> $
 operation#continue -> $
 operation#break -> $
@@ -346,6 +361,7 @@ value'#char -> $
 value'#float -> $
 value'#double -> $
 value'#void -> $
+value'#struct -> $
 value'#unsigned -> $
 value'#continue -> $
 value'#break -> $
@@ -405,6 +421,7 @@ item'#char -> $
 item'#float -> $
 item'#double -> $
 item'#void -> $
+item'#struct -> $
 item'#unsigned -> $
 item'#continue -> $
 item'#break -> $
@@ -438,6 +455,7 @@ factor#STR -> const
 factor#INT10 -> const
 factor#INT8 -> const
 factor#INT16 -> const
+call_func#[ -> [ INT10 ]
 call_func#( -> ( es )
 call_func#* -> $
 call_func#/ -> $
@@ -465,6 +483,7 @@ call_func#char -> $
 call_func#float -> $
 call_func#double -> $
 call_func#void -> $
+call_func#struct -> $
 call_func#unsigned -> $
 call_func#continue -> $
 call_func#break -> $
@@ -522,6 +541,7 @@ type#IDN-> synch
 type#IDN-> synch
 type#IDN-> synch
 type#IDN-> synch
+type#IDN-> synch
 func_body#int-> synch
 func_body#short-> synch
 func_body#long-> synch
@@ -529,6 +549,7 @@ func_body#char-> synch
 func_body#float-> synch
 func_body#double-> synch
 func_body#void-> synch
+func_body#struct-> synch
 func_body#unsigned-> synch
 func_body##-> synch
 func_body#int-> synch
@@ -538,6 +559,7 @@ func_body#char-> synch
 func_body#float-> synch
 func_body#double-> synch
 func_body#void-> synch
+func_body#struct-> synch
 func_body#unsigned-> synch
 func_body##-> synch
 block#int-> synch
@@ -547,8 +569,31 @@ block#char-> synch
 block#float-> synch
 block#double-> synch
 block#void-> synch
+block#struct-> synch
 block#unsigned-> synch
 block##-> synch
+block#,-> synch
+block#;-> synch
+block#continue-> synch
+block#break-> synch
+block#return-> synch
+block#while-> synch
+block#for-> synch
+block#do-> synch
+block#if-> synch
+block#switch-> synch
+block#(-> synch
+block#IDN-> synch
+block#FLOAT-> synch
+block#CHAR-> synch
+block#STR-> synch
+block#INT10-> synch
+block#INT8-> synch
+block#INT16-> synch
+block#}-> synch
+block#else-> synch
+block#case-> synch
+block#default-> synch
 define_stmt#continue-> synch
 define_stmt#break-> synch
 define_stmt#return-> synch
@@ -568,6 +613,8 @@ define_stmt#INT16-> synch
 define_stmt#}-> synch
 define_stmt##-> synch
 define_stmt#else-> synch
+define_stmt#,-> synch
+define_stmt#;-> synch
 define_stmt#case-> synch
 define_stmt#default-> synch
 stmt#}-> synch
@@ -789,6 +836,7 @@ expression#char-> synch
 expression#float-> synch
 expression#double-> synch
 expression#void-> synch
+expression#struct-> synch
 expression#unsigned-> synch
 expression#continue-> synch
 expression#break-> synch
@@ -923,6 +971,7 @@ value#char-> synch
 value#float-> synch
 value#double-> synch
 value#void-> synch
+value#struct-> synch
 value#unsigned-> synch
 value#continue-> synch
 value#break-> synch
@@ -963,6 +1012,7 @@ item#char-> synch
 item#float-> synch
 item#double-> synch
 item#void-> synch
+item#struct-> synch
 item#unsigned-> synch
 item#continue-> synch
 item#break-> synch
@@ -1006,6 +1056,7 @@ factor#char-> synch
 factor#float-> synch
 factor#double-> synch
 factor#void-> synch
+factor#struct-> synch
 factor#unsigned-> synch
 factor#continue-> synch
 factor#break-> synch
@@ -1049,6 +1100,7 @@ factor#char-> synch
 factor#float-> synch
 factor#double-> synch
 factor#void-> synch
+factor#struct-> synch
 factor#unsigned-> synch
 factor#continue-> synch
 factor#break-> synch
@@ -1092,6 +1144,7 @@ factor#char-> synch
 factor#float-> synch
 factor#double-> synch
 factor#void-> synch
+factor#struct-> synch
 factor#unsigned-> synch
 factor#continue-> synch
 factor#break-> synch
@@ -1136,6 +1189,7 @@ const#char-> synch
 const#float-> synch
 const#double-> synch
 const#void-> synch
+const#struct-> synch
 const#unsigned-> synch
 const#continue-> synch
 const#break-> synch
@@ -1182,6 +1236,7 @@ const#char-> synch
 const#float-> synch
 const#double-> synch
 const#void-> synch
+const#struct-> synch
 const#unsigned-> synch
 const#continue-> synch
 const#break-> synch
@@ -1228,6 +1283,7 @@ const#char-> synch
 const#float-> synch
 const#double-> synch
 const#void-> synch
+const#struct-> synch
 const#unsigned-> synch
 const#continue-> synch
 const#break-> synch
@@ -1274,6 +1330,7 @@ const#char-> synch
 const#float-> synch
 const#double-> synch
 const#void-> synch
+const#struct-> synch
 const#unsigned-> synch
 const#continue-> synch
 const#break-> synch
@@ -1293,6 +1350,7 @@ const#)-> synch
 const#else-> synch
 const#case-> synch
 const#default-> synch
+num_const#]-> synch
 num_const#:-> synch
 num_const#*-> synch
 num_const#/-> synch
@@ -1320,6 +1378,7 @@ num_const#char-> synch
 num_const#float-> synch
 num_const#double-> synch
 num_const#void-> synch
+num_const#struct-> synch
 num_const#unsigned-> synch
 num_const#continue-> synch
 num_const#break-> synch
@@ -1342,6 +1401,7 @@ num_const#)-> synch
 num_const#else-> synch
 num_const#case-> synch
 num_const#default-> synch
+num_const#]-> synch
 num_const#:-> synch
 num_const#*-> synch
 num_const#/-> synch
@@ -1369,6 +1429,7 @@ num_const#char-> synch
 num_const#float-> synch
 num_const#double-> synch
 num_const#void-> synch
+num_const#struct-> synch
 num_const#unsigned-> synch
 num_const#continue-> synch
 num_const#break-> synch
@@ -1391,6 +1452,7 @@ num_const#)-> synch
 num_const#else-> synch
 num_const#case-> synch
 num_const#default-> synch
+num_const#]-> synch
 num_const#:-> synch
 num_const#*-> synch
 num_const#/-> synch
@@ -1418,6 +1480,7 @@ num_const#char-> synch
 num_const#float-> synch
 num_const#double-> synch
 num_const#void-> synch
+num_const#struct-> synch
 num_const#unsigned-> synch
 num_const#continue-> synch
 num_const#break-> synch

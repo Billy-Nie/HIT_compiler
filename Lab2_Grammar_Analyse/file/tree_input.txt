@@ -1,0 +1,229 @@
+S'-> S
+S-> func funcs
+func-> type IDN ( args ) func_body
+type-> int
+args-> type IDN arg
+type-> int
+arg-> $
+func_body-> block
+block-> { define_stmts stmts }
+define_stmts-> $
+stmts-> stmt stmts
+stmt-> jump_stmt
+jump_stmt-> return isnull_expr ;
+isnull_expr-> expression
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> $
+operation-> $
+stmts-> $
+funcs-> func funcs
+func-> type IDN ( args ) func_body
+type-> int
+args-> $
+func_body-> block
+block-> { define_stmts stmts }
+define_stmts-> define_stmt define_stmts
+define_stmt-> type IDN init vars ;
+type-> struct
+init-> block
+block-> { define_stmts stmts }
+define_stmts-> define_stmt define_stmts
+define_stmt-> type IDN init vars ;
+type-> int
+init-> = expression
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> $
+operation-> $
+vars-> $
+define_stmts-> $
+stmts-> $
+vars-> $
+define_stmts-> $
+stmts-> stmt stmts
+stmt-> iteration_stmt
+iteration_stmt-> while ( logical_expression ) block_stmt
+logical_expression-> expression bool_expression
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> IDN call_func
+call_func-> $
+item'-> $
+value'-> $
+operation-> compare_op value
+compare_op-> >
+value-> item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> $
+bool_expression-> $
+block_stmt-> { define_stmts stmts }
+define_stmts-> define_stmt define_stmts
+define_stmt-> type IDN init vars ;
+type-> int
+init-> = expression
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> $
+operation-> $
+vars-> $
+define_stmts-> define_stmt define_stmts
+define_stmt-> type IDN init vars ;
+type-> int
+init-> [ num_const ] init
+num_const-> INT10
+init-> $
+vars-> $
+define_stmts-> $
+stmts-> stmt stmts
+stmt-> assign_stmt
+assign_stmt-> expression ;
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> IDN call_func
+call_func-> [ INT10 ]
+item'-> $
+value'-> $
+operation-> equal_op value
+equal_op-> =
+value-> item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> $
+stmts-> stmt stmts
+stmt-> assign_stmt
+assign_stmt-> expression ;
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> IDN call_func
+call_func-> ( es )
+es-> isnull_expr isnull_es
+isnull_expr-> expression
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> IDN call_func
+call_func-> $
+item'-> $
+value'-> $
+operation-> $
+isnull_es-> , isnull_expr isnull_es
+isnull_expr-> expression
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> IDN call_func
+call_func-> $
+item'-> $
+value'-> $
+operation-> $
+isnull_es-> $
+item'-> $
+value'-> $
+operation-> $
+stmts-> stmt stmts
+stmt-> branch_stmt
+branch_stmt-> if ( logical_expression ) block_stmt result
+logical_expression-> expression bool_expression
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> IDN call_func
+call_func-> $
+item'-> $
+value'-> $
+operation-> compare_op value
+compare_op-> >
+value-> item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> $
+bool_expression-> $
+block_stmt-> { define_stmts stmts }
+define_stmts-> $
+stmts-> stmt stmts
+stmt-> assign_stmt
+assign_stmt-> expression ;
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> IDN call_func
+call_func-> $
+item'-> $
+value'-> $
+operation-> equal_op value
+equal_op-> =
+value-> item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> + item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> $
+stmts-> $
+result-> else block_stmt
+block_stmt-> { define_stmts stmts }
+define_stmts-> $
+stmts-> stmt stmts
+stmt-> assign_stmt
+assign_stmt-> expression ;
+expression-> value operation
+value-> item value'
+item-> factor item'
+factor-> IDN call_func
+call_func-> $
+item'-> $
+value'-> $
+operation-> equal_op value
+equal_op-> =
+value-> item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> + item value'
+item-> factor item'
+factor-> const
+const-> num_const
+num_const-> INT10
+item'-> $
+value'-> $
+stmts-> $
+stmts-> $
+stmts-> $
+funcs-> $

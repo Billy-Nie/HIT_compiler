@@ -1,3 +1,4 @@
+S' -> S
 S -> func funcs
 funcs -> func funcs
 funcs -> $
@@ -9,6 +10,7 @@ type -> char
 type -> float
 type -> double
 type -> void
+type -> struct
 type -> unsigned type
 args -> type IDN arg
 args -> $
@@ -20,6 +22,8 @@ block -> { define_stmts stmts }
 define_stmts -> define_stmt define_stmts
 define_stmts -> $
 define_stmt -> type IDN init vars ;
+init -> block
+init -> [ num_const ] init
 init -> = expression
 init -> $
 vars -> , IDN init vars
@@ -34,11 +38,11 @@ assign_stmt -> expression ;
 jump_stmt -> continue ;
 jump_stmt -> break ;
 jump_stmt -> return isnull_expr ;
-iteration_stmt -> while ( logical_expression ) block
-iteration_stmt -> for ( isnull_expr ; isnull_expr ; isnull_expr ) block
-iteration_stmt -> do block while ( logical_expression ) ;
-branch_stmt -> if ( logical_expression ) block result
-result -> else block
+iteration_stmt -> while ( logical_expression ) block_stmt
+iteration_stmt -> for ( isnull_expr ; isnull_expr ; isnull_expr ) block_stmt
+iteration_stmt -> do block_stmt while ( logical_expression ) ;
+branch_stmt -> if ( logical_expression ) block_stmt result
+result -> else block_stmt
 result -> $
 logical_expression -> ! expression bool_expression
 logical_expression -> expression bool_expression
@@ -51,7 +55,7 @@ case_stmts -> case_stmt case_stmts
 case_stmts -> $
 case_stmt -> case const : stmts
 default_stmt -> default : stmts
-block_stmt -> { stmts }
+block_stmt -> { define_stmts stmts }
 isnull_expr -> expression
 isnull_expr -> $
 expression -> value operation
@@ -82,6 +86,7 @@ item' -> $
 factor -> ( value )
 factor -> IDN call_func
 factor -> const
+call_func -> [ INT10 ]
 call_func -> ( es )
 call_func -> $
 es -> isnull_expr isnull_es

@@ -5,4 +5,4 @@ T -> F T'
 T' -> * F T'
 T' -> $
 F -> ( E )
-F -> id
+F -> IDN

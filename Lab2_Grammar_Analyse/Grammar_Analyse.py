@@ -26,7 +26,7 @@ class Grammar_Analyser:
         #self.outputTerminals()
         #
         self.getFirst()
-        # self.outputFirst()
+        #self.outputFirst()
         self.getFollow()
         #self.outputFollow()
         self.getSelect()

@@ -5,10 +5,56 @@
 # @E-mail    ：niechenxiHIT@126.com
 
 from Stack import Stack
+from string import digits
 from latex_analyse.Latex import Latex_analyse_main
 from Grammar_Analyse import Grammar_Analyser
+from treelib import Node, Tree
+
+def generate_parser_tree(tree_input_path):
+    def find_parent(node_name, tmp2):
+        for i in range(len(rights_l) - 1, -1, -1): #倒着找
+            for j in range(tmp2, -1, -1):
+                if node_name + str(j) in rights_l[i]:
+                    return node_name+str(j)
+        return None
+
+    remove_digits = str.maketrans('', '', digits)
+
+    parser_tree = Tree()
+    file = open(tree_input_path)
+    left_l = []
+    rights_l = []
+    tmp = 0 # 只是为了让每一个的标识符不一样
+    for line in file.readlines():
+        if line[-1] == "\n":
+            line = line[:-1]
+        left = line.split("->")[0]
+        left_l.append(left)
+
+        left_parent_node = find_parent(left, tmp - 1)
+        rights = line.split("->")[1]
+        new_rights = []
+        for right in rights.split(" "):
+            if right != "":
+                new_rights.append(right + str(tmp))
+                tmp += 1
+        #print(new_rights)
+        rights_l.append(new_rights)
+        if left_parent_node == None:
+            parser_tree.create_node(left, "root")
+            for i in range(len(new_rights)):
+                parser_tree.create_node(new_rights[i].translate(remove_digits), new_rights[i], parent="root")
+            #parser_tree.show()
+        else:
+            for i in range(len(new_rights)):
+                parser_tree.create_node(new_rights[i].translate(remove_digits), new_rights[i], parent=left_parent_node)
+    parser_tree.show()
+    file.close()
+
+
 
 def LL_1_Analyse(input_list, analyse_table_path, grammar_Analyse, line_number_l):
+    tree_input_file = open("file/tree_input.txt", "w")
     error_l = [] #存储打印出来的错误信息
     production_l = [] #存储打印出来的产生式
     input_list.append("#") #添上标记为输入尾巴的井号
@@ -54,6 +100,7 @@ def LL_1_Analyse(input_list, analyse_table_path, grammar_Analyse, line_number_l)
                     hash_key = line.index("#")
                     line = line[:hash_key] + line[arrow_index:]
                     print(line)
+                    tree_input_file.write(line + "\n")
                     production_l.append(line)
                     stack.pop()
                     line_right = line[line.index(">") + 1 :].strip()
@@ -75,6 +122,8 @@ def LL_1_Analyse(input_list, analyse_table_path, grammar_Analyse, line_number_l)
                 ip += 1
         X = stack.top()
     return error_l, production_l
+
+
 
 
 if __name__ == "__main__":
@@ -108,3 +157,4 @@ if __name__ == "__main__":
     error_l, production_l = LL_1_Analyse(token_l, "file/Analyse_table.txt", grammar_analyser, line_number_l)
 
 
+generate_parser_tree("file/tree_input.txt")
